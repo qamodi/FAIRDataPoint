@@ -28,6 +28,7 @@ import nl.dtls.fairdatapoint.api.dto.shape.ShapeRemoteDTO;
 import nl.dtls.fairdatapoint.database.mongo.repository.ShapeRepository;
 import nl.dtls.fairdatapoint.entity.exception.ShapeImportException;
 import nl.dtls.fairdatapoint.entity.exception.ValidationException;
+import nl.dtls.fairdatapoint.entity.resource.ResourceDefinition;
 import nl.dtls.fairdatapoint.entity.shape.Shape;
 import nl.dtls.fairdatapoint.entity.shape.ShapeType;
 import nl.dtls.fairdatapoint.util.RdfIOUtil;
@@ -119,6 +120,9 @@ public class ShapeService {
         if (oShape.isEmpty()) {
             return false;
         }
+
+        // TODO: check if shape used in resource definitions
+
         Shape shape = oShape.get();
         if (shape.getType() == ShapeType.INTERNAL) {
             throw new ValidationException("You can't delete INTERNAL Shape");

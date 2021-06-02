@@ -35,6 +35,7 @@ public class ResourceDefinitionMapper {
                 dto.getName(),
                 dto.getUrlPrefix(),
                 dto.getTargetClassUris(),
+                dto.getShapeUuids(),
                 dto.getChildren(),
                 dto.getExternalLinks());
     }
@@ -44,6 +45,7 @@ public class ResourceDefinitionMapper {
                 rd.getName(),
                 rd.getUrlPrefix(),
                 rd.getTargetClassUris(),
+                rd.getShapeUuids(),
                 rd.getChildren(),
                 rd.getExternalLinks());
     }

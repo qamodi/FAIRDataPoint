@@ -29,6 +29,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class ShapeFixtures {
 
+    public static final String RESOURCE_SHAPE_UUID = "6a668323-3936-4b53-8380-a4fd2ed082ee";
+
+    public static final String REPOSITORY_SHAPE_UUID = "a92958ab-a414-47e6-8e17-68ba96ba3a2b";
+
+    public static final String CATALOG_SHAPE_UUID = "2aa7ba63-d27a-4c0e-bfa6-3a4e250f4660";
+
+    public static final String DATASET_SHAPE_UUID = "866d7fb8-5982-4215-9c7c-18d0ed1bd5f3";
+
+    public static final String DISTRIBUTION_SHAPE_UUID = "ebacbf83-cd4f-4113-8738-d73c0735b0ab";
+
     public Shape resourceShape() {
         return new Shape(
                 null,

@@ -84,6 +84,8 @@ public class ResourceDefinitionService {
         String uuid = UUID.randomUUID().toString();
         ResourceDefinition rd = resourceDefinitionMapper.fromChangeDTO(reqDto, uuid);
 
+        // TODO: check if shapes exist
+
         resourceDefinitionValidator.validate(rd);
         resourceDefinitionRepository.save(rd);
         resourceDefinitionCache.computeCache();
@@ -102,6 +104,8 @@ public class ResourceDefinitionService {
         ResourceDefinition rd = oRd.get();
         ResourceDefinition updatedRd = resourceDefinitionMapper.fromChangeDTO(reqDto, rd.getUuid());
         updatedRd.setId(rd.getId());
+
+        // TODO: check if shapes exist
 
         resourceDefinitionValidator.validate(updatedRd);
         resourceDefinitionRepository.save(updatedRd);

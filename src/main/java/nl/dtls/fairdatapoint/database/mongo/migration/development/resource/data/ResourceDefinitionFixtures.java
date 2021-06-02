@@ -22,6 +22,7 @@
  */
 package nl.dtls.fairdatapoint.database.mongo.migration.development.resource.data;
 
+import nl.dtls.fairdatapoint.database.mongo.migration.development.shape.data.ShapeFixtures;
 import nl.dtls.fairdatapoint.entity.resource.*;
 import nl.dtls.fairdatapoint.vocabulary.R3D;
 import org.eclipse.rdf4j.model.vocabulary.DCAT;
@@ -48,6 +49,7 @@ public class ResourceDefinitionFixtures {
                 "Repository",
                 "",
                 List.of("http://www.w3.org/ns/dcat#Resource", "http://www.re3data.org/schema/3-0#Repository"),
+                List.of(ShapeFixtures.RESOURCE_SHAPE_UUID, ShapeFixtures.REPOSITORY_SHAPE_UUID),
                 List.of(new ResourceDefinitionChild(
                         CATALOG_DEFINITION_UUID,
                         R3D.DATACATALOG.stringValue(),
@@ -67,6 +69,7 @@ public class ResourceDefinitionFixtures {
                 "Catalog",
                 "catalog",
                 List.of("http://www.w3.org/ns/dcat#Resource", "http://www.w3.org/ns/dcat#Catalog"),
+                List.of(ShapeFixtures.RESOURCE_SHAPE_UUID, ShapeFixtures.CATALOG_SHAPE_UUID),
                 List.of(new ResourceDefinitionChild(
                         DATASET_DEFINITION_UUID,
                         DCAT.HAS_DATASET.stringValue(),
@@ -86,6 +89,7 @@ public class ResourceDefinitionFixtures {
                 "Dataset",
                 "dataset",
                 List.of("http://www.w3.org/ns/dcat#Resource", "http://www.w3.org/ns/dcat#Dataset"),
+                List.of(ShapeFixtures.RESOURCE_SHAPE_UUID, ShapeFixtures.DATASET_SHAPE_UUID),
                 List.of(new ResourceDefinitionChild(
                         DISTRIBUTION_DEFINITION_UUID,
                         DCAT.HAS_DISTRIBUTION.stringValue(),
@@ -106,6 +110,7 @@ public class ResourceDefinitionFixtures {
                 "Distribution",
                 "distribution",
                 List.of("http://www.w3.org/ns/dcat#Resource", "http://www.w3.org/ns/dcat#Distribution"),
+                List.of(ShapeFixtures.RESOURCE_SHAPE_UUID, ShapeFixtures.DISTRIBUTION_SHAPE_UUID),
                 List.of(),
                 List.of(
                         new ResourceDefinitionLink("Access online", "http://www.w3.org/ns/dcat#accessURL"),
@@ -120,6 +125,7 @@ public class ResourceDefinitionFixtures {
                 "Ontology",
                 "ontology",
                 List.of("http://www.w3.org/ns/dcat#Resource", "http://www.w3.org/ns/dcat#Ontology"),
+                List.of(ShapeFixtures.RESOURCE_SHAPE_UUID),
                 List.of(),
                 List.of()
         );

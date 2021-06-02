@@ -51,6 +51,9 @@ public class ResourceDefinitionChangeDTO {
     protected List<@ValidIri String> targetClassUris;
 
     @NotNull
+    protected List<String> shapeUuids;
+
+    @NotNull
     @Valid
     protected List<ResourceDefinitionChild> children;
 

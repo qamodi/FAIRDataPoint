@@ -26,11 +26,13 @@ import nl.dtls.fairdatapoint.entity.metadata.Identifier;
 import nl.dtls.fairdatapoint.entity.resource.ResourceDefinition;
 import nl.dtls.fairdatapoint.entity.resource.ResourceDefinitionChild;
 import nl.dtls.fairdatapoint.service.metadata.metric.MetricsMetadataService;
+import nl.dtls.fairdatapoint.service.profile.ProfileService;
 import nl.dtls.fairdatapoint.service.resource.ResourceDefinitionCache;
 import nl.dtls.fairdatapoint.util.ValueFactoryHelper;
 import nl.dtls.fairdatapoint.vocabulary.DATACITE;
 import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
+import org.eclipse.rdf4j.model.vocabulary.DCAT;
 import org.eclipse.rdf4j.model.vocabulary.DCTERMS;
 import org.eclipse.rdf4j.model.vocabulary.LDP;
 import org.eclipse.rdf4j.model.vocabulary.RDF;
@@ -67,6 +69,9 @@ public class MetadataEnhancer {
 
     @Autowired
     private MetricsMetadataService metricsMetadataService;
+
+    @Autowired
+    private ProfileService profileService;
 
     @Autowired
     private ResourceDefinitionCache resourceDefinitionCache;
@@ -144,6 +149,7 @@ public class MetadataEnhancer {
                 resultRdf.add(container, LDP.CONTAINS, i(childUri.stringValue()));
             }
         }
+        resultRdf.add(entityUri, DCTERMS.CONFORMS_TO, profileService.getProfileUri(rd));
     }
 
     private Identifier createMetadataIdentifier(IRI uri) {
